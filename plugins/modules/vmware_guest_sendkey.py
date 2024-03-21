@@ -249,6 +249,8 @@ class PyVmomiHelper(PyVmomi):
             ('DOWNARROW', '0x51', [('', [])]),
             ('UPARROW', '0x52', [('', [])]),
             ('WINDOWS', '0xe3', [('', [])]),
+            ('LEFTSHIFT_F10', '0x43', [('', ['LEFTSHIFT'])]),
+            ('WINDOWS_U', '0x18', [('', ['LEFTGUI'])]),
         ]
 
     @staticmethod
@@ -285,6 +287,8 @@ class PyVmomiHelper(PyVmomi):
             key_modifier.leftControl = True
         if "ALT" in modifiers:
             key_modifier.leftAlt = True
+        if "LEFTGUI" in modifiers:
+            key_modifier.leftGui = True
         key_event.modifiers = key_modifier
         key_event.usbHidCode = self.hid_to_hex(hid_code)
 
